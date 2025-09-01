@@ -1,4 +1,4 @@
-const allowedOrgin = ["http://localhost:5000", "http://localhost:3000"]
+const allowedOrgin = ["http://localhost:5000", "http://localhost:3000" ,"https://authorizationpro.netlify.app" ]
 
 module.exports = allowedOrgin
 
