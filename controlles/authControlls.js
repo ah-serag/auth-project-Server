@@ -134,7 +134,6 @@ if(!cookie?.refreshtoken) {
 
 }
 
-  res.clearCookie("accessToken", { httpOnly: true, sameSite: "strict", secure: true });
   res.clearCookie("refreshtoken", { httpOnly: true, sameSite: "strict", secure: true });
 
 return res.json({message:"success logout"})

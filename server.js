@@ -5,6 +5,8 @@ const mongoose = require("mongoose");
 const cookieparser = require("cookie-parser");
 const cors = require("cors");
 const path = require("path");
+
+//
 const optionCors = require("./config/optionCors");
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -45,5 +47,5 @@ mongoose.connection.once("open", () => {
 
 // handle error
 mongoose.connection.on("error", (err) => {
-  console.log(`faild conect : ${err}`);
+  console.log(`faild connect : ${err}`);
 });
