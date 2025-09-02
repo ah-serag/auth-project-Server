@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 const cookieparser = require("cookie-parser");
 const cors = require("cors");
 const path = require("path");
-
+const User = require("./models/Users");
 //
 const optionCors = require("./config/optionCors");
 const app = express();
@@ -13,6 +13,7 @@ const PORT = process.env.PORT || 3000;
 const view404 = path.join(__dirname, "views", "404.html");
 
 connectDB();
+
 
 app.use(cors(optionCors));
 app.use(cookieparser()); //reading cookies
@@ -24,22 +25,23 @@ app.use("/", require("./routes/root"));
 app.use("/auth", require("./routes/authroutes"));
 app.use("/users", require("./routes/usersroute"));
 
-app.all(/.*/, (req, res) => {
-  res.status(404);
-  if (req.accepts("html")) {
-    res.sendFile(view404);
-  } else if (req.accepts("json")) {
-    res.json({ message: "404 Erorr" });
-  } else {
-    res.type("txt").send("404 Erorr");
-  }
-});
+// app.all(/.*/, (req, res) => {
+//   res.status(404);
+//   if (req.accepts("html")) {
+//     res.sendFile(view404);
+//   } else if (req.accepts("json")) {
+//     res.json({ message: "404 Erorr" });
+//   } else {
+//     res.type("txt").send("404 Erorr");
+//   }
+// });
 
 //////////////////////////////////////////////
 
 // once is [connect database frist time ]
-mongoose.connection.once("open", () => {
+mongoose.connection.once("open", async () => {
   console.log("connected to DB");
+
   app.listen(PORT, () => {
     console.log(`http//:localhost:${PORT}`);
   });

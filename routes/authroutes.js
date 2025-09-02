@@ -7,6 +7,7 @@ router.route("/register").post(authcontrolls.register)
 router.route("/login").post(authcontrolls.login) 
 router.route('/refreshToken').get(authcontrolls.refreshToken)
 router.route('/logout').post(authcontrolls.logout)
+router.route("/verify/:token").get(authcontrolls.verifyEmail)
 
 module.exports = router
 

@@ -12,8 +12,11 @@ const generateRefreshToken = async (userId)=>{
   return jwt.sign({userId :userId},process.env.SECRET_KEY_REFREASHTOKEN,{expiresIn:'7d'}) 
 } 
 
+const generateVerifyEmail = async (userId)=>{
+  return jwt.sign({userId :userId},process.env.SECRET_KEY_VERIFYEMAIL,{expiresIn:'1h'}) 
+} 
 
 
-module.exports ={ generateAccesToken, generateRefreshToken }
+module.exports ={ generateAccesToken, generateRefreshToken ,generateVerifyEmail }
 
 
