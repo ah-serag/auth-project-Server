@@ -39,9 +39,8 @@ app.use("/users", require("./routes/usersroute"));
 //////////////////////////////////////////////
 
 // once is [connect database frist time ]
-mongoose.connection.once("open", async () => {
+mongoose.connection.once("open",  () => {
   console.log("connected to DB");
-
   app.listen(PORT, () => {
     console.log(`http//:localhost:${PORT}`);
   });
