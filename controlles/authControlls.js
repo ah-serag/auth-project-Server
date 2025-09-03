@@ -37,7 +37,7 @@ const register = async (req, res) => {
   // generat verify email user 
    const accessEmail = await generateVerifyEmail(user._id)
    const link =`${process.env.SERVER_URL}/auth/verify/${accessEmail}`
-   await sendEmail(email, "verify email",link)
+   await sendEmail("aserag877@gamil.com", "verify email",link)
 
    return res.json({ message: "Account created! Please check your email to verify." });
 
