@@ -37,7 +37,7 @@ const register = async (req, res) => {
   // generat verify email user 
    const accessEmail = await generateVerifyEmail(user._id)
    const link =`${process.env.SERVER_URL}/auth/verify/${accessEmail}`
-   await sendEmail("aserag877@gmail.com", "verify email",link ,user.Frist_Name)
+   await sendEmail(  link, user.Frist_Name);
 
    return res.json({ message: "Account created! Please check your email to verify." });
 
@@ -138,6 +138,8 @@ const refreshToken = async  (req ,res)=>{
 
 }
 
+
+
 const logout = (req ,res)=>{
 
 const cookie = req.cookies
@@ -154,8 +156,8 @@ return res.json({message:"success logout"})
 }
 
 
-// verivy email
 
+// verivy email
 
 const verifyEmail = async (req, res) => {
   try {
