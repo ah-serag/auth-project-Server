@@ -32,7 +32,7 @@ async function sendEmail( accessEmail, userName) {
         box-shadow: 0 0 10px rgba(0,0,0,0.1);
         font-size: 16px;
         line-height: 1.5;
-        color: #333;
+        color: white;
       }
       .btn {
         display: inline-block;
@@ -81,3 +81,4 @@ async function sendEmail( accessEmail, userName) {
 }
 
 module.exports = sendEmail;
+// hellooooooooooooooooooooo
