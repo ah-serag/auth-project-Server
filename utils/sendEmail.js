@@ -1,7 +1,7 @@
 const nodemailer = require("nodemailer");
 
 
-async function sendEmail(to, subject ,accessEmail) {
+async function sendEmail(to, subject ,accessEmail , userName) {
 
 const htmlMessage = `
 <!DOCTYPE html>
@@ -31,7 +31,7 @@ const htmlMessage = `
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
       font-size: 16px;
       line-height: 1.5;
-      color: #333;
+      color: white;
     }
     .btn {
       display: inline-block;
@@ -50,7 +50,7 @@ const htmlMessage = `
     Auth App
   </div>
   <div class="content">
-    <p>Hello,</p>
+    <h3>Hello <span style="color:blue">${userName}</span></h3>
     <p>Thank you for registering at <strong>Auth App</strong>.</p>
     <p>Please confirm your email by clicking the button below:</p>
     <a href="${accessEmail}" class="btn" style="color:white">Verify Email</a>

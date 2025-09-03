@@ -37,7 +37,7 @@ const register = async (req, res) => {
   // generat verify email user 
    const accessEmail = await generateVerifyEmail(user._id)
    const link =`${process.env.SERVER_URL}/auth/verify/${accessEmail}`
-   await sendEmail("aserag877@gamil.com", "verify email",link)
+   await sendEmail("aserag877@gmail.com", "verify email",link ,user.Frist_Name)
 
    return res.json({ message: "Account created! Please check your email to verify." });
 
@@ -46,24 +46,7 @@ const register = async (req, res) => {
   }
 
 
-   //
-//   const accessToken = await generateAccesToken(user._id)
-//   const refreshToken = await generateRefreshToken(user._id)
 
-
-//  res.cookie("refreshtoken", refreshToken, {
-//  httpOnly: true, // http protocol
-//  secure: true, // https 
-//  sameSite: "None",
-//  MaxAge:1000 * 60 * 60 * 24*7
-//  });
-
-
-//  return res.json({
-//   accessToken: accessToken ,
-//   name : user.Frist_Name + " " + user.Last_Name ,
-//   email:user.email
-//  })
 
 };
 
