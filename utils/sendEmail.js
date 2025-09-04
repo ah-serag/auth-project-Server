@@ -2,7 +2,7 @@ const sgMail = require("@sendgrid/mail");
 
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
-async function sendEmail( accessEmail, userName) {
+async function sendEmail( to ,accessEmail, userName) {
 
   const htmlMessage = `
 
@@ -126,7 +126,7 @@ async function sendEmail( accessEmail, userName) {
 `;
     
   const msg = {
-    to :"aserag877@gmail.com",
+    to ,
     from: "authproapp@gmail.com", 
     subject :"Verify Email",
     text:"hello in auth app" ,
